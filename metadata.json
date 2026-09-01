@@ -1,0 +1,6 @@
+{
+  "name": "Holiday Hype Tours & Travel",
+  "description": "Premium safari expeditions, bespoke holiday packages, flights, hotels, and tailor-made African travel experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
