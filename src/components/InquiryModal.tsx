@@ -119,8 +119,8 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
 
               <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-2.5">
                 <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                    `Hello Holiday Hype, I submitted inquiry ${confirmedInquiry.referenceNumber} regarding ${defaultTitle}.`
+                  href={`https://wa.me/${siteConfig.contact.whatsappClean}?text=${encodeURIComponent(
+                    `Hello Holiday Hype Travel & Tours, I submitted inquiry ${confirmedInquiry.referenceNumber} regarding ${defaultTitle}.`
                   )}`}
                   target="_blank"
                   rel="noreferrer"

@@ -25,9 +25,13 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onSelect, onBookN
         <img
           src={pkg.thumbnail || pkg.heroImage}
           alt={pkg.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          referrerPolicy="no-referrer"
         />
+
+        {/* Subtle gradient vignette ensuring badges and duration pill remain crisp and legible */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/25 pointer-events-none" />
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
@@ -79,7 +83,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onSelect, onBookN
 
           {/* Top 2 Highlights */}
           <div className="space-y-1 pt-1">
-            {pkg.highlights.slice(0, 2).map((hl, idx) => (
+            {(pkg.highlights || []).slice(0, 2).map((hl, idx) => (
               <div key={idx} className="flex items-start gap-1.5 text-xs text-stone-700">
                 <Check className="w-3.5 h-3.5 text-[#D2573F] flex-shrink-0 mt-0.5" />
                 <span className="truncate">{hl}</span>
@@ -89,33 +93,44 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onSelect, onBookN
         </div>
 
         {/* Footer with Price and Actions */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+        <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-[10px] uppercase font-bold text-stone-600 tracking-wider block">
-              From
+              Starting From
             </span>
             <div className="flex items-baseline gap-1">
-              <span className="font-serif text-xl font-extrabold text-[#122544]">
-                {siteConfig.currency.symbol}{pkg.pricePerPersonUsd.toLocaleString()}
-              </span>
-              <span className="text-[11px] text-stone-500 font-medium">/ person</span>
+              {pkg.pricePerPersonUsd && pkg.pricePerPersonUsd > 0 ? (
+                <>
+                  <span className="font-serif text-xl font-extrabold text-[#122544]">
+                    {siteConfig.currency.symbol}{pkg.pricePerPersonUsd.toLocaleString()}
+                  </span>
+                  <span className="text-[11px] text-stone-500 font-medium">/ person</span>
+                </>
+              ) : (
+                <span className="font-serif text-base font-bold text-[#122544]">
+                  Get a Quote
+                </span>
+              )}
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => onSelect(pkg)}
-              className="px-3 py-2 rounded-sm border border-[#122544]/20 hover:border-[#122544] text-[#122544] text-xs font-semibold uppercase tracking-wider transition-colors"
+              className="flex-1 sm:flex-initial px-3 py-2 rounded-sm border border-[#122544] text-[#122544] hover:bg-[#122544] hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors text-center"
             >
-              Details
+              View Package
             </button>
-            <button
-              onClick={() => onBookNow(pkg)}
-              className="px-3.5 py-2 rounded-sm bg-[#D2573F] hover:bg-[#b84a35] text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center gap-1"
+            <a
+              href={`https://wa.me/${siteConfig.contact.whatsappClean}?text=${encodeURIComponent(
+                `Hello Holiday Hype Tours & Travel! I would like to book or enquire about the "${pkg.title}" (${pkg.durationDays}D/${pkg.durationNights}N) package. Destination: ${pkg.destinationName}.`
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 sm:flex-initial px-3.5 py-2 rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-xs text-center flex items-center justify-center gap-1"
             >
-              <span>Book</span>
-              <ArrowRight className="w-3 h-3" />
-            </button>
+              <span>WhatsApp to Book</span>
+            </a>
           </div>
         </div>
       </div>

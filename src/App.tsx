@@ -42,6 +42,7 @@ import { TermsPage } from "./pages/TermsPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { CancellationPolicyPage } from "./pages/CancellationPolicyPage";
 import { AdminPage } from "./pages/AdminPage";
+import { CorporateTravelPage } from "./pages/CorporateTravelPage";
 
 export default function App() {
   // Navigation State
@@ -175,54 +176,151 @@ export default function App() {
   // Render current view
   const renderCurrentPage = () => {
     // 1. Destination Detail
-    if (currentPath.startsWith("/destinations/") && selectedDestination) {
-      return (
-        <DestinationDetailPage
-          destination={selectedDestination}
-          allPackages={packages}
-          onBack={() => navigate("/destinations")}
-          onSelectPackage={handleSelectPackage}
-          onBookPackage={handleOpenBooking}
-          onOpenPlanTrip={() => navigate("/plan-my-trip")}
-        />
-      );
+    if (currentPath.startsWith("/destinations/")) {
+      const slug = currentPath.replace("/destinations/", "").split("?")[0];
+      const found = (selectedDestination && selectedDestination.slug === slug) 
+        ? selectedDestination 
+        : destinations.find((d) => d.slug === slug);
+
+      if (found) {
+        return (
+          <DestinationDetailPage
+            destination={found}
+            packages={packages}
+            onBack={() => navigate("/destinations")}
+            onSelectPackage={handleSelectPackage}
+            onBookPackage={handleOpenBooking}
+            onOpenPlanTrip={() => navigate("/plan-my-trip")}
+            onInquire={(title, dest) => handleOpenInquiry("general", `${title} (${dest})`)}
+          />
+        );
+      }
+
+      if (!isLoading) {
+        return (
+          <div className="max-w-xl mx-auto py-20 px-4 text-center space-y-4 bg-white rounded-lg border border-[#122544]/10 my-10 shadow-sm">
+            <h2 className="font-serif text-2xl font-bold text-[#122544]">Destination Not Found</h2>
+            <p className="text-xs sm:text-sm text-stone-600">
+              We couldn't locate a destination guide matching "{slug}".
+            </p>
+            <button
+              onClick={() => navigate("/destinations")}
+              className="px-5 py-2.5 rounded-sm bg-[#122544] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#1f3860] transition-colors"
+            >
+              Back to All Destinations
+            </button>
+          </div>
+        );
+      }
     }
 
     // 2. Package Detail
-    if (currentPath.startsWith("/packages/") && selectedPackage) {
-      return (
-        <PackageDetailPage
-          pkg={selectedPackage}
-          relatedPackages={packages}
-          onBack={() => navigate("/packages")}
-          onBookNow={handleOpenBooking}
-          onOpenInquiry={() => handleOpenInquiry("general", selectedPackage.title)}
-          onSelectRelated={handleSelectPackage}
-        />
-      );
+    if (currentPath.startsWith("/packages/")) {
+      const slug = currentPath.replace("/packages/", "").split("?")[0];
+      const foundPkg = (selectedPackage && selectedPackage.slug === slug)
+        ? selectedPackage
+        : packages.find((p) => p.slug === slug || p.id === slug);
+
+      if (foundPkg) {
+        return (
+          <PackageDetailPage
+            pkg={foundPkg}
+            relatedPackages={packages}
+            onBack={() => navigate("/packages")}
+            onBookNow={handleOpenBooking}
+            onOpenInquiry={() => handleOpenInquiry("general", foundPkg.title)}
+            onSelectRelated={handleSelectPackage}
+          />
+        );
+      }
+
+      if (!isLoading) {
+        return (
+          <div className="max-w-xl mx-auto py-20 px-4 text-center space-y-4 bg-white rounded-lg border border-[#122544]/10 my-10 shadow-sm">
+            <h2 className="font-serif text-2xl font-bold text-[#122544]">Package Not Found</h2>
+            <p className="text-xs sm:text-sm text-stone-600">
+              We couldn't locate a safari or tour package matching this link.
+            </p>
+            <button
+              onClick={() => navigate("/packages")}
+              className="px-5 py-2.5 rounded-sm bg-[#122544] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#1f3860] transition-colors"
+            >
+              Browse All Packages
+            </button>
+          </div>
+        );
+      }
     }
 
     // 3. Service Detail
-    if (currentPath.startsWith("/services/") && selectedService) {
-      return (
-        <ServiceDetailPage
-          service={selectedService}
-          onBack={() => navigate("/services")}
-          onInquire={(s) => handleOpenInquiry("general", s.title)}
-          onOpenPlanTrip={() => navigate("/plan-my-trip")}
-        />
-      );
+    if (currentPath.startsWith("/services/")) {
+      const slug = currentPath.replace("/services/", "").split("?")[0];
+      const foundService = (selectedService && selectedService.slug === slug)
+        ? selectedService
+        : services.find((s) => s.slug === slug || s.id === slug);
+
+      if (foundService) {
+        return (
+          <ServiceDetailPage
+            service={foundService}
+            onBack={() => navigate("/services")}
+            onInquire={(s) => handleOpenInquiry("general", s.title)}
+            onOpenPlanTrip={() => navigate("/plan-my-trip")}
+          />
+        );
+      }
+
+      if (!isLoading) {
+        return (
+          <div className="max-w-xl mx-auto py-20 px-4 text-center space-y-4 bg-white rounded-lg border border-[#122544]/10 my-10 shadow-sm">
+            <h2 className="font-serif text-2xl font-bold text-[#122544]">Service Not Found</h2>
+            <p className="text-xs sm:text-sm text-stone-600">
+              We couldn't locate the requested travel service.
+            </p>
+            <button
+              onClick={() => navigate("/services")}
+              className="px-5 py-2.5 rounded-sm bg-[#122544] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#1f3860] transition-colors"
+            >
+              View All Services
+            </button>
+          </div>
+        );
+      }
     }
 
     // 4. Blog Post Detail
-    if (currentPath.startsWith("/blog/") && selectedBlogPost) {
-      return (
-        <BlogPostPage
-          post={selectedBlogPost}
-          onBack={() => navigate("/blog")}
-          onOpenPlanTrip={() => navigate("/plan-my-trip")}
-        />
-      );
+    if (currentPath.startsWith("/blog/")) {
+      const slug = currentPath.replace("/blog/", "").split("?")[0];
+      const foundPost = (selectedBlogPost && selectedBlogPost.slug === slug)
+        ? selectedBlogPost
+        : blogPosts.find((p) => p.slug === slug || p.id === slug);
+
+      if (foundPost) {
+        return (
+          <BlogPostPage
+            post={foundPost}
+            onBack={() => navigate("/blog")}
+            onOpenPlanTrip={() => navigate("/plan-my-trip")}
+          />
+        );
+      }
+
+      if (!isLoading) {
+        return (
+          <div className="max-w-xl mx-auto py-20 px-4 text-center space-y-4 bg-white rounded-lg border border-[#122544]/10 my-10 shadow-sm">
+            <h2 className="font-serif text-2xl font-bold text-[#122544]">Article Not Found</h2>
+            <p className="text-xs sm:text-sm text-stone-600">
+              We couldn't locate the travel article you requested.
+            </p>
+            <button
+              onClick={() => navigate("/blog")}
+              className="px-5 py-2.5 rounded-sm bg-[#122544] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#1f3860] transition-colors"
+            >
+              View All Articles
+            </button>
+          </div>
+        );
+      }
     }
 
     // Static / Main Pages
@@ -254,6 +352,14 @@ export default function App() {
             destinations={destinations}
             onSelectPackage={handleSelectPackage}
             onBookPackage={handleOpenBooking}
+            onOpenPlanTrip={() => navigate("/plan-my-trip")}
+          />
+        );
+
+      case "/corporate":
+        return (
+          <CorporateTravelPage
+            navigate={navigate}
             onOpenPlanTrip={() => navigate("/plan-my-trip")}
           />
         );

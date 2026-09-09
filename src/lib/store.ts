@@ -149,7 +149,7 @@ const initialContactMessages: ContactMessage[] = [
   }
 ];
 
-const STORAGE_KEY = "hht_content_store_v1";
+const STORAGE_KEY = "hht_content_store_v4";
 
 class ContentStore {
   private state: DataStoreState;
@@ -174,7 +174,7 @@ class ContentStore {
             inquiries: parsed.inquiries || initialInquiries,
             contactMessages: parsed.contactMessages || initialContactMessages,
             newsletterSubscribers: parsed.newsletterSubscribers || initialSubscribers,
-            siteNotice: parsed.siteNotice || "🌿 2026 Great Migration Bookings Now Open – Early Bird Discounts Available",
+            siteNotice: parsed.siteNotice || "✈️ Come, Travel & Experience | We Make Your Travel Dream Happen | Flights, SGR & Safaris",
           };
         }
       } catch (err) {
@@ -192,7 +192,7 @@ class ContentStore {
       inquiries: [...initialInquiries],
       contactMessages: [...initialContactMessages],
       newsletterSubscribers: [...initialSubscribers],
-      siteNotice: "🌿 2026 Great Migration Bookings Now Open – Early Bird Discounts Available",
+      siteNotice: "✈️ Come, Travel & Experience | We Make Your Travel Dream Happen | Flights, SGR & Safaris",
     };
   }
 

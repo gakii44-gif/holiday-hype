@@ -113,7 +113,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onOpen
         {/* Tags */}
         <div className="pt-6 border-t border-stone-100 flex flex-wrap items-center gap-2">
           <Tag className="w-4 h-4 text-[#D2573F]" />
-          {post.tags.map((tag, idx) => (
+          {(post.tags || []).map((tag, idx) => (
             <span key={idx} className="px-3 py-1 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold">
               #{tag}
             </span>

@@ -57,7 +57,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
               Included Key Features & Capabilities
             </h3>
             <div className="space-y-3">
-              {service.features.map((feature, idx) => (
+              {(service.features || []).map((feature, idx) => (
                 <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-stone-800">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                   <span>{feature}</span>

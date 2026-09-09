@@ -1,5 +1,5 @@
 /**
- * Holiday Hype Tours & Travel - Central Business Configuration
+ * Holiday Hype Travel & Tours - Central Business Configuration
  * Centralized source of truth for business contact, brand tokens, and defaults.
  */
 
@@ -7,21 +7,31 @@ export const siteConfig = {
   name: "Holiday Hype Tours & Travel",
   shortName: "Holiday Hype",
   legalName: "Holiday Hype Tours & Travel Ltd.",
-  tagline: "Unforgettable African Safaris & Bespoke Global Journeys",
-  description: "Premier tour operator specializing in authentic East African safaris, luxury beach getaways, flights, hotels, and custom curated adventures.",
+  tagline: "Your Next Adventure Starts Here",
+  slogan: "Travel should be exciting — not stressful.",
+  supportingMessage: "We take care of the details. You enjoy the journey.",
+  serviceLine: "Flights • Holidays • Safaris • Hotels • Visa Assistance • Airport Transfers",
+  description: "Modern travel agency & tour operator located at Juba International Airport, South Sudan. Specializing in flight booking, holiday packages, bespoke African safaris, hotel reservations, visa assistance, and airport transfers.",
   url: "https://holidayhype.travel",
   
   contact: {
-    phone: "+254 700 890 123",
-    secondaryPhone: "+254 733 456 789",
-    whatsapp: "+254 700 890 123",
-    whatsappMessage: "Hello Holiday Hype! I would like to plan an unforgettable safari trip.",
-    email: "info@holidayhypetravel.com",
-    inquiriesEmail: "bookings@holidayhypetravel.com",
-    supportEmail: "support@holidayhypetravel.com",
-    address: "6th Floor, Parkview Towers, Kimathi Street, P.O. Box 45892-00100, Nairobi, Kenya",
-    hours: "Monday – Saturday: 08:00 AM – 06:00 PM (EAT) | 24/7 Emergency Support",
-    emergencyContact: "+254 722 000 911",
+    phone: "+211 926 225 156",
+    secondaryPhone: "+211 916 712 073",
+    kenyaPhone: "+254 729 096 621",
+    whatsapp: "+211 926 225 156",
+    whatsappClean: "211926225156",
+    whatsappMessage: "Hello Holiday Hype Tours & Travel! I would like to inquire about your travel services.",
+    email: "hypetoursandtravelagency@gmail.com",
+    secondaryEmail: "jumalugor4@gmail.com",
+    inquiriesEmail: "hypetoursandtravelagency@gmail.com",
+    supportEmail: "hypetoursandtravelagency@gmail.com",
+    address: "Juba International Airport (Opposite Parking), Juba, South Sudan",
+    regionalAddress: "Nairobi Liaison Office: Nairobi, Kenya",
+    mapUrl: "https://maps.app.goo.gl/JhcTK6GMBsDRGiXS9?g_st=aw",
+    headOfOperations: "Juma Lugor",
+    headOfOperationsTitle: "Head of Operations",
+    hours: "Monday – Saturday: 08:00 AM – 07:00 PM | 24/7 WhatsApp & Emergency Support",
+    emergencyContact: "+211 926 225 156 / +254 729 096 621",
   },
 
   social: {
@@ -34,9 +44,9 @@ export const siteConfig = {
 
   accreditation: {
     licenseNo: "TRA/TTO/2026/04882",
-    katoMember: "KATO Associate Category A - No. 592",
-    ecotourismKenya: "Eco-Tourism Kenya Certified Operator",
-    iataCode: "IATA TIDS 96-123456",
+    katoMember: "Accredited Tour & Travel Agency",
+    ecotourismKenya: "Eco-Tourism & Safety Compliant",
+    iataCode: "IATA TIDS Accredited Partner",
   },
 
   brand: {
@@ -58,18 +68,18 @@ export const siteConfig = {
   currency: {
     default: "USD",
     symbol: "$",
-    secondary: "KES",
-    secondarySymbol: "KSh",
+    secondary: "SSP",
+    secondarySymbol: "SSP",
     exchangeRateUsdToKes: 130,
   },
 
-  stats: {
-    travelersServed: "12,500+",
-    destinationsCount: "8+",
-    satisfactionRate: "99.4%",
-    yearsExperience: "12+",
-    fiveStarReviews: "850+",
+  pillars: {
+    location: "Juba International Airport",
+    coverage: "East Africa & International",
+    support: "24/7 WhatsApp Assistance",
+    service: "Personalized Travel Planning",
   }
 };
 
 export type SiteConfig = typeof siteConfig;
+

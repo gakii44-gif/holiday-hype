@@ -552,8 +552,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({ pkg, isOpen, onClose
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                    `Hello Holiday Hype, I just placed booking ${confirmedBooking.referenceNumber} for ${confirmedBooking.packageTitle}. Looking forward to discussing details!`
+                  href={`https://wa.me/${siteConfig.contact.whatsappClean}?text=${encodeURIComponent(
+                    `Hello Holiday Hype Travel & Tours, I just placed booking ${confirmedBooking.referenceNumber} for ${confirmedBooking.packageTitle}. Looking forward to discussing details!`
                   )}`}
                   target="_blank"
                   rel="noreferrer"

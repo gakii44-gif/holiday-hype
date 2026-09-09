@@ -13,12 +13,11 @@ export const seedDestinations: Destination[] = [
     country: "Kenya",
     region: "East Africa",
     tagline: "The Cradle of Safari & The Great Migration",
-    heroImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80",
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80"
     ],
     overview: "Kenya is the birthplace of the safari, celebrated worldwide for the drama of the Great Wildebeest Migration across the Mara River, close-up elephant herds under Mount Kilimanjaro in Amboseli, and pristine white-sand shores in Diani Beach.",
@@ -49,11 +48,11 @@ export const seedDestinations: Destination[] = [
     country: "Tanzania",
     region: "East Africa",
     tagline: "Endless Serengeti Plains & Ngorongoro Caldera",
-    heroImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80"
     ],
     overview: "Tanzania boasts some of Earth's most breathtaking wilderness ecosystems, including the vast Serengeti savannah, the UNESCO World Heritage Ngorongoro Crater, and the snow-capped summit of Mount Kilimanjaro.",
     bestTimeToVisit: "June to October for dry season game viewing; January to March for the Serengeti calving season.",
@@ -82,11 +81,15 @@ export const seedDestinations: Destination[] = [
     country: "Tanzania (Zanzibar)",
     region: "Indian Ocean",
     tagline: "Spices, Turquoise Lagoons & Swahili Heritage",
-    heroImage: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80",
+    heroImage: "/images/holiday_hype_founder_pier.jpg",
+    thumbnail: "/images/zanzibar_sea_turtles_lagoon.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1000&q=80"
+      "/images/zanzibar_sea_turtles_lagoon.jpg",
+      "/images/holiday_hype_founder_pier.jpg",
+      "/images/holiday_hype_founder_beach.jpg",
+      "/images/stone_town_harbor_boats.jpg",
+      "/images/zanzibar_jump_midair.jpg",
+      "/images/zanzibar_holiday_hype.jpg"
     ],
     overview: "The semi-autonomous spice island of Zanzibar blends powdery white beaches, UNESCO-listed Stone Town stone alleys, aromatic clove plantations, and world-class scuba diving at Mnemba Atoll.",
     bestTimeToVisit: "June to October and December to February.",
@@ -115,10 +118,11 @@ export const seedDestinations: Destination[] = [
     country: "Uganda",
     region: "East Africa",
     tagline: "The Pearl of Africa & Mountain Gorilla Sanctuary",
-    heroImage: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80"
     ],
     overview: "Winston Churchill famously named Uganda 'The Pearl of Africa' for its lush misty rainforests, roaring Murchison Falls on the Nile, and the life-changing thrill of eye-to-eye contact with endangered mountain gorillas.",
     bestTimeToVisit: "June to August and December to February for gorilla trekking.",
@@ -176,16 +180,20 @@ export const seedDestinations: Destination[] = [
     name: "South Africa",
     country: "South Africa",
     region: "Southern Africa",
-    tagline: "Kruger Safaris, Cape Town & Cape Winelands",
-    heroImage: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80",
-    gallery: [],
-    overview: "From the dramatic cliffs of Cape Point and world-renowned Table Mountain in Cape Town to private game reserves in Greater Kruger, South Africa delivers cosmopolitan sophistication paired with untamed wilderness.",
-    bestTimeToVisit: "May to September for Kruger safari wildlife viewing; November to March for Cape Town summer.",
+    tagline: "Table Mountain, Cape Town & Greater Kruger Safaris",
+    heroImage: "/images/table_mountain_cape_town.jpg",
+    thumbnail: "/images/table_mountain_cape_town.jpg",
+    gallery: [
+      "/images/table_mountain_cape_town.jpg",
+      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=80"
+    ],
+    overview: "Table Mountain is one of South Africa's most iconic tourist landmarks and part of Table Mountain National Park. From its majestic flat-topped plateau overlooking Cape Town and the Atlantic ocean to private game reserves in Greater Kruger, South Africa delivers cosmopolitan sophistication paired with untamed wilderness.",
+    bestTimeToVisit: "November to March for Cape Town summer & Table Mountain cableway; May to September for Kruger safari wildlife viewing.",
     climate: "Mediterranean in Cape Town; subtropical savannah in the north.",
     topAttractions: [
+      "Table Mountain National Park & Aerial Cableway",
       "Greater Kruger National Park & Sabi Sands",
-      "Table Mountain & Cape Peninsula",
+      "Cape Peninsula & Cape Point",
       "Stellenbosch & Franschhoek Winelands",
       "Boulders Beach Penguin Colony",
       "The Garden Route & Hermanus Whale Watching"
@@ -207,8 +215,8 @@ export const seedDestinations: Destination[] = [
     country: "Zimbabwe / Zambia",
     region: "Southern Africa",
     tagline: "The Smoke that Thunders & Chobe River Safaris",
-    heroImage: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1609198092458-38a293c7ac4b?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1609198092458-38a293c7ac4b?auto=format&fit=crop&w=800&q=80",
     gallery: [],
     overview: "One of the Seven Natural Wonders of the World, Victoria Falls plunges more than 100 meters into the Zambezi Gorge. Pair thunderous waterfall vistas with sunset boat cruises and day trips to Botswana's Chobe National Park.",
     bestTimeToVisit: "February to May for maximum water flow; August to December for white-water rafting and Devil's Pool.",
@@ -279,11 +287,11 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Wildlife Safari",
     featured: true,
     popular: true,
-    heroImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80"
     ],
     overview: "Embark on an iconic 7-day Kenya wildlife expedition traversing three of Africa's premier wildlife reserves. Witness the predator-dense savannahs of Maasai Mara, the endangered rhino haven of Lake Nakuru, and the majestic elephant herds of Amboseli under Mount Kilimanjaro.",
     highlights: [
@@ -414,10 +422,11 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Wildlife Safari",
     featured: true,
     popular: true,
-    heroImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80"
+      "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80"
     ],
     overview: "Explore Tanzania's legendary Northern Safari Circuit. Marvel at ancient baobab trees and massive elephant herds in Tarangire, track lions across the endless Seronera plains of the Serengeti, and descend 600 meters into the wildlife amphitheater of the Ngorongoro Crater.",
     highlights: [
@@ -676,9 +685,11 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Gorilla Trekking",
     featured: true,
     popular: false,
-    heroImage: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=800&q=80",
-    gallery: [],
+    heroImage: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1000&q=80"
+    ],
     overview: "Experience one of the world's most profound wildlife encounters. Journey into the UNESCO-listed ancient mist-shrouded rainforest of Bwindi Impenetrable Forest to spend one unforgettable hour in the presence of a habituated wild Mountain Gorilla family.",
     highlights: [
       "Guaranteed official Uganda Wildlife Authority Gorilla Trekking Permit ($800 value included)",
@@ -767,10 +778,13 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Luxury Safari",
     featured: true,
     popular: false,
-    heroImage: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80",
-    gallery: [],
-    overview: "Combine the world's most scenic city with Africa's premier Big Five safari. Indulge in Cape Town's dining, Table Mountain cableway, Cape Peninsula penguin colony, and Franschhoek wine tastings, followed by an open-vehicle safari in Kruger's private game concessions.",
+    heroImage: "/images/table_mountain_cape_town.jpg",
+    thumbnail: "/images/table_mountain_cape_town.jpg",
+    gallery: [
+      "/images/table_mountain_cape_town.jpg",
+      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=80"
+    ],
+    overview: "Combine Table Mountain—one of South Africa's most iconic tourist landmarks and the crown jewel of Table Mountain National Park—with Africa's premier Big Five safari in Greater Kruger. Indulge in Cape Town's dining, the rotating Table Mountain aerial cableway, Cape Peninsula penguin colony, and Franschhoek wine tastings.",
     highlights: [
       "Table Mountain aerial cableway & private Cape Peninsula tour",
       "Visit Boulders Beach African Penguin colony",
@@ -894,16 +908,23 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Beach & Coastal",
     featured: false,
     popular: true,
-    heroImage: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80",
-    gallery: [],
-    overview: "Unwind on the idyllic spice island of Zanzibar. Discover centuries of history in the labyrinthine alleys of Stone Town, savor tropical spices on organic plantations, snorkel with sea turtles at Mnemba Atoll, and marvel at world-famous African sunsets in Nungwi.",
+    heroImage: "/images/holiday_hype_founder_pier.jpg",
+    thumbnail: "/images/zanzibar_sea_turtles_lagoon.jpg",
+    gallery: [
+      "/images/zanzibar_sea_turtles_lagoon.jpg",
+      "/images/holiday_hype_founder_pier.jpg",
+      "/images/holiday_hype_founder_beach.jpg",
+      "/images/stone_town_harbor_boats.jpg",
+      "/images/zanzibar_jump_midair.jpg",
+      "/images/zanzibar_diving_flip.jpg"
+    ],
+    overview: "Unwind on the idyllic spice island of Zanzibar. Discover centuries of history in the labyrinthine alleys of Stone Town, swim waist-deep with giant green sea turtles in the Nungwi natural coral lagoon, explore traditional wooden boats in the harbor, and marvel at world-famous African sunsets.",
     highlights: [
-      "Guided Stone Town walking tour & House of Wonders history",
-      "Aromatic organic spice farm sensory tasting tour",
+      "Guided Stone Town walking tour & historic harbor boat excursion",
+      "Swimming with wild green sea turtles in the Nungwi natural lagoon sanctuary",
       "Full day Mnemba Atoll boat & snorkeling cruise with dolphins",
-      "Luxury beachfront stay in non-tidal Nungwi/Kendwa beach",
-      "Traditional sunset dhow sailing cruise with appetizers"
+      "Luxury beachfront stay in non-tidal Nungwi/Kendwa beach with wooden jetty pier",
+      "Traditional sunset dhow sailing cruise with appetizers & Swahili music"
     ],
     itinerary: [
       {
@@ -935,12 +956,12 @@ export const seedPackages: HolidayPackage[] = [
       },
       {
         day: 4,
-        title: "Beach Leisure & Sunset Dhow Sailing",
-        location: "Nungwi Beach",
-        description: "Relax poolside or swim in the tide-free turquoise waters of Nungwi. Late afternoon board a handcrafted wooden dhow for a romantic sunset cruise with Swahili music.",
+        title: "Swimming with Sea Turtles at Nungwi Sanctuary & Sunset Dhow",
+        location: "Baraka Natural Aquarium & Nungwi Beach",
+        description: "Visit the natural tidal coral rock lagoon sanctuary at Nungwi. Wade waist-deep in the transparent waters to feed and swim alongside wild green sea turtles. Afternoon relaxation along the wooden jetty pier, followed by a romantic sunset wooden dhow cruise with Swahili rhythms.",
         meals: "Breakfast, Dinner",
         accommodation: "Royal Zanzibar Beach Resort / Zuri Zanzibar",
-        activities: ["Beach relaxation", "Sunset dhow sailing", "Cocktails & appetizers"]
+        activities: ["Sea turtle sanctuary swim", "Kendwa jetty walk", "Sunset dhow sailing", "Cocktails & appetizers"]
       },
       {
         day: 5,
@@ -994,9 +1015,13 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Wildlife Safari",
     featured: true,
     popular: true,
-    heroImage: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1534177616072-ef7dc120449d?auto=format&fit=crop&w=800&q=80",
-    gallery: [],
+    heroImage: "/images/amboseli_elephants_kilimanjaro.jpg",
+    thumbnail: "/images/amboseli_elephants_kilimanjaro.jpg",
+    gallery: [
+      "/images/amboseli_elephants_kilimanjaro.jpg",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80"
+    ],
     overview: "The quintessential East African safari spanning both Kenya and Tanzania. Cross international borders seamlessly to experience the complete Mara-Serengeti ecosystem, the wonders of Ngorongoro Crater, and Amboseli's giant elephants under Mount Kilimanjaro.",
     highlights: [
       "Seamless cross-border safari combining Kenya's Mara and Tanzania's Serengeti",
@@ -1112,7 +1137,7 @@ export const seedPackages: HolidayPackage[] = [
     bestSeason: "July – October & December – March",
     transportType: "Private 4x4 Safari Land Cruiser",
     accommodationType: "5-Star Serena & Luxury Tented Safari Lodges",
-    rating: 4.98,
+    rating: 5.0,
     reviewCount: 165
   },
   {
@@ -1131,9 +1156,11 @@ export const seedPackages: HolidayPackage[] = [
     travelStyle: "Wildlife Safari",
     featured: false,
     popular: true,
-    heroImage: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80",
-    thumbnail: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
-    gallery: [],
+    heroImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1600&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80"
+    ],
     overview: "Short on time but yearning for authentic African wildlife? This 3-day express safari takes you directly from Nairobi to Amboseli National Park for world-class elephant photography against the backdrop of snow-capped Mount Kilimanjaro.",
     highlights: [
       "Close encounters with Africa's famous Amboseli giant tuskers",
@@ -1553,7 +1580,7 @@ With fewer than 1,060 mountain gorillas surviving in the wild, trekking to see t
     },
     publishedAt: "2026-01-20",
     readTimeMinutes: 7,
-    coverImage: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=1200&q=80",
     tags: ["Gorilla Trekking", "Bwindi", "Uganda", "Rwanda"],
     featured: false
   },
@@ -1582,7 +1609,7 @@ Zanzibar is far more than just a beach destination. It is a sensory journey wher
     },
     publishedAt: "2026-01-10",
     readTimeMinutes: 5,
-    coverImage: "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1200&q=80",
+    coverImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
     tags: ["Zanzibar", "Stone Town", "Beach Holiday", "Island Guides"],
     featured: false
   },

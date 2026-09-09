@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { siteConfig } from "../lib/config";
 import { newsletterRepository } from "../lib/repositories";
+import { Logo } from "./Logo";
 import { 
   Compass, 
   Phone, 
@@ -50,18 +51,8 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Column 1: Brand & Accreditation */}
           <div className="lg:col-span-2 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#E7A93B] flex items-center justify-center text-[#122544]">
-                <Compass className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-bold text-white tracking-tight leading-tight">
-                  HOLIDAY HYPE
-                </h3>
-                <p className="text-[10px] tracking-[0.2em] font-semibold text-[#E7A93B] uppercase">
-                  TOURS & TRAVEL
-                </p>
-              </div>
+            <div className="cursor-pointer inline-block" onClick={() => navigate("/")}>
+              <Logo variant="card" size="md" />
             </div>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -86,18 +77,34 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links / Safaris */}
+          {/* Column 2: Quick Navigation Links */}
           <div className="space-y-4">
             <h4 className="font-serif text-base font-bold text-white tracking-wide">
-              Safaris & Holidays
+              Explore
             </h4>
             <ul className="space-y-2.5 text-sm">
+              <li>
+                <button 
+                  onClick={() => navigate("/packages")}
+                  className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
+                >
+                  Holidays
+                </button>
+              </li>
               <li>
                 <button 
                   onClick={() => navigate("/destinations")}
                   className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
                 >
-                  African Destinations
+                  Destinations
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate("/flights")}
+                  className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
+                >
+                  Flights
                 </button>
               </li>
               <li>
@@ -105,39 +112,31 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                   onClick={() => navigate("/tours")}
                   className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
                 >
-                  Tours & Safaris Finder
+                  Safaris
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => navigate("/packages")}
-                  className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
+                  onClick={() => navigate("/corporate")}
+                  className="hover:text-[#E7A93B] text-[#E7A93B] font-medium transition-colors flex items-center gap-1 text-left"
                 >
-                  Curated Holiday Packages
+                  Corporate Travel
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => navigate("/destinations/kenya")}
+                  onClick={() => navigate("/about")}
                   className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
                 >
-                  Kenya Safaris & Migration
+                  About
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => navigate("/destinations/tanzania")}
+                  onClick={() => navigate("/contact")}
                   className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
                 >
-                  Tanzania & Serengeti
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => navigate("/destinations/uganda")}
-                  className="hover:text-[#E7A93B] transition-colors flex items-center gap-1 text-left"
-                >
-                  Gorilla Trekking (Uganda)
+                  Contact
                 </button>
               </li>
             </ul>
@@ -146,37 +145,42 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
           {/* Column 3: Travel Services */}
           <div className="space-y-4">
             <h4 className="font-serif text-base font-bold text-white tracking-wide">
-              Services & Travel
+              Services
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <button onClick={() => navigate("/services")} className="hover:text-[#E7A93B] transition-colors">
-                  All Travel Services
-                </button>
-              </li>
-              <li>
                 <button onClick={() => navigate("/flights")} className="hover:text-[#E7A93B] transition-colors">
-                  Flight Bookings & Bush Charters
+                  Flight Bookings
                 </button>
               </li>
               <li>
                 <button onClick={() => navigate("/hotels")} className="hover:text-[#E7A93B] transition-colors">
-                  Luxury Lodges & Resorts
+                  Hotel Bookings
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate("/plan-my-trip")} className="hover:text-[#E7A93B] transition-colors text-[#E7A93B] font-medium">
-                  Custom Trip Designer
+                <button onClick={() => navigate("/packages")} className="hover:text-[#E7A93B] transition-colors">
+                  Safari Packages
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate("/blog")} className="hover:text-[#E7A93B] transition-colors">
-                  Safari Blog & Travel Tips
+                <button onClick={() => navigate("/services/visa-assistance-and-travel-insurance")} className="hover:text-[#E7A93B] transition-colors">
+                  Visa Assistance
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate("/about")} className="hover:text-[#E7A93B] transition-colors">
-                  About Holiday Hype
+                <button onClick={() => navigate("/corporate")} className="hover:text-[#E7A93B] transition-colors">
+                  Airport Transfers
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate("/corporate")} className="hover:text-[#E7A93B] transition-colors">
+                  Corporate Travel
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate("/plan-my-trip")} className="hover:text-[#E7A93B] text-[#D2573F] font-semibold transition-colors">
+                  Plan My Trip
                 </button>
               </li>
             </ul>
@@ -215,14 +219,33 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               )}
             </form>
 
-            <div className="pt-2 text-xs text-slate-400 space-y-1.5">
+            <div className="pt-2 text-xs text-slate-400 space-y-2 border-t border-slate-800">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#E7A93B] flex-shrink-0 mt-0.5" />
-                <span>{siteConfig.contact.address}</span>
+                <div>
+                  <p className="text-white font-medium">{siteConfig.contact.address}</p>
+                  <a
+                    href={siteConfig.contact.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[#E7A93B] hover:underline text-[11px] mt-0.5"
+                  >
+                    <span>View on Google Maps</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#E7A93B] flex-shrink-0" />
-                <span>{siteConfig.contact.phone}</span>
+                <Phone className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                <a href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`} className="hover:text-white transition-colors text-slate-300">
+                  {siteConfig.contact.phone} (WhatsApp)
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#E7A93B] flex-shrink-0" />
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors text-slate-300 break-all">
+                  {siteConfig.contact.email}
+                </a>
               </div>
             </div>
           </div>

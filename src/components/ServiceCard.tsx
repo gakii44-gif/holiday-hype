@@ -54,7 +54,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect, onI
 
         {/* Feature List */}
         <div className="space-y-1.5 pt-3 border-t border-slate-100">
-          {service.features.slice(0, 3).map((feat, idx) => (
+          {(service.features || []).slice(0, 3).map((feat, idx) => (
             <div key={idx} className="flex items-start gap-2 text-xs text-stone-700">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#D2573F] flex-shrink-0 mt-0.5" />
               <span className="line-clamp-1">{feat}</span>

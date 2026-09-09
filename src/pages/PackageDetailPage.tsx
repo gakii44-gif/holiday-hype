@@ -27,18 +27,24 @@ import {
 
 interface PackageDetailPageProps {
   pkg: HolidayPackage;
+  relatedPackages?: HolidayPackage[];
   onBack: () => void;
   onBookNow: (pkg: HolidayPackage) => void;
-  onInquire: (title: string, destination: string) => void;
-  onOpenPlanTrip: () => void;
+  onOpenInquiry?: () => void;
+  onInquire?: (title: string, destination: string) => void;
+  onOpenPlanTrip?: () => void;
+  onSelectRelated?: (pkg: HolidayPackage) => void;
 }
 
 export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
   pkg,
+  relatedPackages = [],
   onBack,
   onBookNow,
+  onOpenInquiry,
   onInquire,
   onOpenPlanTrip,
+  onSelectRelated,
 }) => {
   const [activeDay, setActiveDay] = useState<number | null>(1);
   const [copied, setCopied] = useState(false);
@@ -50,6 +56,18 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
       setTimeout(() => setCopied(false), 2000);
     }
   };
+
+  const handleInquireClick = () => {
+    if (onOpenInquiry) {
+      onOpenInquiry();
+    } else if (onInquire) {
+      onInquire(`Custom Quote for ${pkg.title}`, pkg.destinationName);
+    }
+  };
+
+  const filteredRelated = relatedPackages
+    .filter((p) => p.id !== pkg.id)
+    .slice(0, 3);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
@@ -131,7 +149,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
             className="w-full h-full object-cover"
           />
         </div>
-        {pkg.galleryImages.slice(0, 4).map((img, idx) => (
+        {(pkg.gallery || (pkg as any).galleryImages || []).slice(0, 4).map((img: string, idx: number) => (
           <div key={idx} className="hidden md:block h-[225px] overflow-hidden">
             <img
               src={img}
@@ -156,19 +174,21 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
             </p>
 
             {/* Highlights List */}
-            <div className="pt-4 border-t border-stone-100 space-y-3">
-              <h3 className="text-xs font-bold text-[#122544] uppercase tracking-wider">
-                Expedition Highlights
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {pkg.highlights.map((hl, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs text-stone-800">
-                    <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <span>{hl}</span>
-                  </div>
-                ))}
+            {(pkg.highlights || []).length > 0 && (
+              <div className="pt-4 border-t border-stone-100 space-y-3">
+                <h3 className="text-xs font-bold text-[#122544] uppercase tracking-wider">
+                  Expedition Highlights
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {(pkg.highlights || []).map((hl, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-stone-800">
+                      <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                      <span>{hl}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Day-by-Day Interactive Itinerary */}
@@ -178,12 +198,12 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
                 Day-by-Day Itinerary
               </h2>
               <span className="text-xs text-stone-500 font-medium">
-                {pkg.itinerary.length} Days Detailed
+                {(pkg.itinerary || []).length} Days Detailed
               </span>
             </div>
 
             <div className="space-y-3">
-              {pkg.itinerary.map((day) => {
+              {(pkg.itinerary || []).map((day) => {
                 const isOpen = activeDay === day.day;
                 return (
                   <div
@@ -205,7 +225,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
                         <div>
                           <h3 className="font-bold text-sm leading-snug">{day.title}</h3>
                           <p className={`text-[11px] ${isOpen ? "text-slate-300" : "text-stone-500"}`}>
-                            {day.destination}
+                            {day.location || (day as any).destination}
                           </p>
                         </div>
                       </div>
@@ -238,7 +258,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
                             <Car className="w-4 h-4 text-[#D2573F]" />
                             <div>
                               <span className="text-[10px] uppercase font-bold text-stone-400 block">Activities</span>
-                              <span className="font-semibold text-stone-800 truncate">{day.activities.join(", ")}</span>
+                              <span className="font-semibold text-stone-800 truncate">{(day.activities || []).join(", ")}</span>
                             </div>
                           </div>
                         </div>
@@ -259,7 +279,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
                 <span>What is Included</span>
               </h3>
               <ul className="space-y-2 text-xs text-stone-700">
-                {pkg.included.map((inc, idx) => (
+                {(pkg.inclusions || (pkg as any).included || []).map((inc: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span>{inc}</span>
@@ -275,7 +295,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
                 <span>What is Excluded</span>
               </h3>
               <ul className="space-y-2 text-xs text-stone-700">
-                {pkg.excluded.map((exc, idx) => (
+                {(pkg.exclusions || (pkg as any).excluded || []).map((exc: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
                     <X className="w-3.5 h-3.5 text-rose-500 flex-shrink-0 mt-0.5" />
                     <span>{exc}</span>
@@ -315,7 +335,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
               </button>
 
               <button
-                onClick={() => onInquire(`Custom Quote for ${pkg.title}`, pkg.destinationName)}
+                onClick={handleInquireClick}
                 className="w-full py-3 rounded-xl bg-[#122544] hover:bg-[#1a335a] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
               >
                 <FileCheck2 className="w-4 h-4" />
@@ -323,7 +343,7 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
               </button>
 
               <a
-                href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+                href={`https://wa.me/${siteConfig.contact.whatsappClean}?text=${encodeURIComponent(
                   `Hello Holiday Hype! I am interested in the ${pkg.title} (${pkg.durationDays} Days). Could we discuss dates and custom adjustments?`
                 )}`}
                 target="_blank"
@@ -353,6 +373,55 @@ export const PackageDetailPage: React.FC<PackageDetailPageProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Related Packages / Similar Safaris */}
+      {filteredRelated.length > 0 && (
+        <div className="pt-8 border-t border-stone-200 space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="font-serif text-2xl font-bold text-[#122544]">
+              You May Also Like
+            </h2>
+            <button
+              onClick={onBack}
+              className="text-xs font-bold text-[#D2573F] hover:underline"
+            >
+              View All Packages &rarr;
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {filteredRelated.map((related) => (
+              <div
+                key={related.id}
+                onClick={() => onSelectRelated && onSelectRelated(related)}
+                className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
+              >
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={related.heroImage}
+                    alt={related.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-2 left-2 bg-[#122544]/90 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                    {related.durationDays} Days
+                  </div>
+                  <div className="absolute top-2 right-2 bg-[#E7A93B] text-[#122544] text-[10px] font-bold px-2 py-0.5 rounded">
+                    ${related.pricePerPersonUsd}
+                  </div>
+                </div>
+                <div className="p-4 space-y-2">
+                  <h3 className="font-serif font-bold text-sm text-[#122544] line-clamp-1 group-hover:text-[#D2573F] transition-colors">
+                    {related.title}
+                  </h3>
+                  <p className="text-xs text-stone-500 line-clamp-2">
+                    {related.subtitle}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

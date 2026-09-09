@@ -20,9 +20,11 @@ import {
 interface PlanMyTripPageProps {
   destinations: Destination[];
   onFinish?: () => void;
+  onBack?: () => void;
+  navigate?: (path: string) => void;
 }
 
-export const PlanMyTripPage: React.FC<PlanMyTripPageProps> = ({ destinations, onFinish }) => {
+export const PlanMyTripPage: React.FC<PlanMyTripPageProps> = ({ destinations, onFinish, onBack, navigate }) => {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
 
   // Step 1: Destination and Travel Style Selection
@@ -151,7 +153,7 @@ export const PlanMyTripPage: React.FC<PlanMyTripPageProps> = ({ destinations, on
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+                href={`https://wa.me/${siteConfig.contact.whatsappClean}?text=${encodeURIComponent(
                   `Hello Holiday Hype! I just submitted custom trip request ${confirmedReference} for ${selectedDestinations.join(", ")}. Looking forward to the proposal!`
                 )}`}
                 target="_blank"
@@ -162,14 +164,16 @@ export const PlanMyTripPage: React.FC<PlanMyTripPageProps> = ({ destinations, on
                 <span>Expedite via WhatsApp Concierge</span>
               </a>
 
-              {onFinish && (
-                <button
-                  onClick={onFinish}
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#122544] text-white font-semibold text-xs"
-                >
-                  Return to Home
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  if (onFinish) onFinish();
+                  else if (navigate) navigate("/");
+                  else if (onBack) onBack();
+                }}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#122544] text-white font-semibold text-xs"
+              >
+                Return to Home
+              </button>
             </div>
           </div>
         ) : (

@@ -20,6 +20,7 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
           alt={destination.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent z-10" />
 
@@ -61,11 +62,15 @@ export const DestinationCard: React.FC<DestinationCardProps> = ({ destination, o
 
         {/* Card Footer Action */}
         <div className="mt-3 pt-3 border-t border-slate-100 flex justify-between items-center">
-          <span className="text-[#D2573F] font-bold text-xs uppercase tracking-wider group-hover:text-[#b84a35] transition-colors">
-            Explore Tours
-          </span>
-          <span className="text-slate-400 group-hover:text-[#D2573F] group-hover:translate-x-1 transition-all text-sm">
-            →
+          <button
+            type="button"
+            className="px-3.5 py-1.5 rounded-sm bg-[#122544] group-hover:bg-[#D2573F] text-white font-semibold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+          >
+            <span>Explore</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+          <span className="text-[11px] text-stone-500 font-medium group-hover:text-[#122544]">
+            View Itineraries
           </span>
         </div>
       </div>
